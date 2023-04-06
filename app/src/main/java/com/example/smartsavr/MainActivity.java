@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
                                 progressDialog.cancel();
 
                                 firebaseFirestore.collection("User")
-                                        .document(FirebaseAuth.getInstance().getUid());
+                                        .document(FirebaseAuth.getInstance().getUid())
+                                        .set(new UserModel(name,email));
 
                             }
                         })
@@ -65,6 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         });
+
+            }
+        });
+
+
+        binding.gotologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
 
             }
         });
