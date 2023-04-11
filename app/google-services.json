@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "293230285399",
+    "project_id": "smartsavr-ab4a2",
+    "storage_bucket": "smartsavr-ab4a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293230285399:android:ea064b6436be4818510912",
+        "android_client_info": {
+          "package_name": "com.example.smartsavr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293230285399-dbfalp1a3pps3qsrabd9ceb7u1pae7uq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBERvrLXrQyYgcSnqcU0VidFD1IoKo4jy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293230285399-dbfalp1a3pps3qsrabd9ceb7u1pae7uq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
