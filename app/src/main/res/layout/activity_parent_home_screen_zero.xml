@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context=".Parent_HomeScreenZero">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_added_children"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+
     <TextView
 
         android:layout_width="wrap_content"
@@ -29,30 +38,19 @@
         android:layout_marginLeft="10dp"
         android:text="@string/Add_a_Child"
         android:textColor="@color/blue"
-
+        android:onClick="onClick"
+        android:clickable="true"
         android:textSize="30dp"
         android:textStyle="bold" />
 
-
     <Button
-        android:layout_marginVertical="00dp"
-        android:id="@+id/new_chore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginTop="10dp"
-        android:text="New Chore" />
-
-    <Button
-        android:id="@+id/manage_chores"
+        android:id="@+id/allowance_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:text="Manage Chores" />
+        android:text="Allowance Summary" />
 
 
 </LinearLayout>
