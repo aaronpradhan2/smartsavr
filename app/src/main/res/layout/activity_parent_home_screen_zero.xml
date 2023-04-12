@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".Parent_HomeScreenZero">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You haven't added any children yet."
+        android:textSize="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="0dp"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:text="@string/Add_a_Child"
+        android:textColor="@color/blue"
+
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:layout_marginVertical="00dp"
+        android:id="@+id/new_chore"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="10dp"
+        android:text="New Chore" />
+
+    <Button
+        android:id="@+id/manage_chores"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="Manage Chores" />
+
+
+</LinearLayout>
