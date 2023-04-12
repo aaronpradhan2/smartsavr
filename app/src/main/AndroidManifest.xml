@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Smartsavr"
         tools:targetApi="31">
         <activity
+            android:name=".ChildProfile_parentlogin"
+            android:exported="false" />
+        <activity
             android:name=".AddedChildrenview"
             android:exported="false" />
         <activity
