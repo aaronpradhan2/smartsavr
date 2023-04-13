@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
 
+    public static int userid = 0;
+
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 String name = binding.username.getText().toString();
                 String email = binding.email.getText().toString().trim();
                 String password = binding.password.getText().toString();
+                userid = userid+1;
 
                 progressDialog.show();
 
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 firebaseFirestore.collection("User")
                                         .document(FirebaseAuth.getInstance().getUid())
-                                        .set(new UserModel(name,email));
+                                        .set(new UserModel(userid,name,email));
 
                             }
                         })
