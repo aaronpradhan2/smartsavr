@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Smartsavr"
         tools:targetApi="31">
         <activity
+            android:name=".ParentSummaryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChildSummaryActivity"
+            android:exported="true" />
+        <activity
             android:name=".ChildProfile_parentlogin"
             android:exported="false" />
         <activity
@@ -38,11 +44,9 @@
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".AddChildActivity"
             android:parentActivityName=".SettingsActivity" />
-
     </application>
 
 </manifest>
