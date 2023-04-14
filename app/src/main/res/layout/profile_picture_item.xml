@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/profile_picture_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardElevation="8dp"
+        app:contentPadding="8dp">
+
+        <ImageView
+            android:id="@+id/profile_picture_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:importantForAccessibility="no" />
+    </com.google.android.material.card.MaterialCardView>
+</layout>
