@@ -30,7 +30,7 @@
         android:layout_marginBottom="0dp"/>
 
     <TextView
-
+        android:id="@+id/add_a_child_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"
@@ -38,7 +38,6 @@
         android:layout_marginLeft="10dp"
         android:text="@string/Add_a_Child"
         android:textColor="@color/blue"
-        android:onClick="onClick"
         android:clickable="true"
         android:textSize="30dp"
         android:textStyle="bold" />
