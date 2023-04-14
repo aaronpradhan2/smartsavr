@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_about"
-        android:title="@string/action_about"
-        app:showAsAction="never" />
+        android:title="@string/action_settings"
+        android:icon="@drawable/settings"
+        app:showAsAction="always" />
 </menu>
