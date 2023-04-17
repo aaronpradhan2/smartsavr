@@ -27,14 +27,14 @@
         style="@style/EditTextStandard"
         android:layout_marginTop="10dp"
         android:inputType="textEmailAddress"
-        android:hint="E-mail address"
+        android:hint="@string/email_address"
         android:layout_width="match_parent"/>
 
     <EditText
         android:id="@+id/password"
         style="@style/EditTextStandard"
         android:layout_marginTop="10dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>

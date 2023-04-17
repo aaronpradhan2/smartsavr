@@ -65,5 +65,5 @@
         android:id="@+id/allowance_summary"
         style="@style/Button.Standard"
         android:layout_marginBottom="8dp"
-        android:text="Allowance Summary" />
+        android:text="@string/allowance_summary" />
 </LinearLayout>

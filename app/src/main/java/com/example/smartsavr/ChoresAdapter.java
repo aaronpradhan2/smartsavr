@@ -2,22 +2,18 @@ package com.example.smartsavr;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.fragment.app.FragmentManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.logging.Handler;
 
 public class ChoresAdapter extends RecyclerView.Adapter<ChoresViewHolder> {
 
@@ -122,7 +118,7 @@ public class ChoresAdapter extends RecyclerView.Adapter<ChoresViewHolder> {
         else{
             holder.done.setVisibility(View.INVISIBLE);
             holder.doneText.setVisibility(View.INVISIBLE);
-            holder.delete.setImageResource(R.drawable.thrash);
+            holder.delete.setImageResource(R.drawable.trash);
             holder.edit.setImageResource(R.drawable.pencil);
             holder.undo.setImageResource(R.drawable.undo);
             holder.taskCompleted.setImageResource(R.drawable.check);

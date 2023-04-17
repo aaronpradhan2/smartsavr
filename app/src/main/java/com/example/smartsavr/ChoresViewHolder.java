@@ -33,7 +33,6 @@ public class ChoresViewHolder extends RecyclerView.ViewHolder {
         this.taskName = itemView.findViewById(R.id.activityName);
         this.rewardCents = itemView.findViewById(R.id.reward);
         this.dateText = itemView.findViewById(R.id.dateText);
-        this.imageCircle = itemView.findViewById(R.id.circle);
         this.done = itemView.findViewById(R.id.done);
         this.doneText = itemView.findViewById(R.id.textDone);
         this.delete = itemView.findViewById(R.id.delete);
@@ -41,7 +40,6 @@ public class ChoresViewHolder extends RecyclerView.ViewHolder {
         this.undo = itemView.findViewById(R.id.undo);
         this.taskCompleted = itemView.findViewById(R.id.taskDone);
         this.taskCardview = itemView.findViewById(R.id.activityCard);
-        this.dollar = itemView.findViewById(R.id.dollar);
 
     }
 }

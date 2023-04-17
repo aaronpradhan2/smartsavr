@@ -9,11 +9,11 @@
     <TextView
         android:id="@+id/requireApprovalText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:layout_gravity="start"
         android:textSize="20sp"
-        android:text="Completed Chores Need Approval"
+        android:layout_margin="8dp"
+        android:text="Completed Chores (Need Approval)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_gravity="start"
+        android:layout_margin="8dp"
         android:text="To Do"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -33,6 +34,7 @@
         android:id="@+id/fragmentNeedApproval"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/requireApprovalText"
         tools:layout="@layout/fragment_upcoming_activities" />
@@ -41,6 +43,7 @@
         android:id="@+id/fragmentCompletedActivities"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notCompletedText"
         tools:layout="@layout/fragment_upcoming_activities" />
@@ -57,14 +60,11 @@
 
     <Button
         android:id="@+id/addTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Add Task"
-        android:theme="@style/Button.Standard"
+        style="@style/Button.Standard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentCompletedActivities" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
