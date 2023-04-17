@@ -9,7 +9,7 @@
     tools:context=".ChildSummaryActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/weekly_earnings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteX="-10dp">
 
         <TextView
-            android:id="@+id/text_summary"
+            android:id="@+id/weekly_amt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
@@ -43,6 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/monthly_earnings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -53,11 +54,12 @@
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/weekly_earnings"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="20dp">
 
         <TextView
+            android:id="@+id/monthly_amt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"

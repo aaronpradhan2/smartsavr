@@ -68,7 +68,7 @@ public class ParentSummaryActivity extends AppCompatActivity {
         xAxisLabel.add("Sat");
 
         XAxis xAxis = barChart.getXAxis();
-//        xAxis.setLabelCount(xAxisLabel.size(), true);
+        xAxis.setLabelCount(xAxisLabel.size(), true);
         xAxis.setValueFormatter(new IndexAxisValueFormatter(xAxisLabel));
         xAxis.setCenterAxisLabels(true);
 //        xAxis.setGranularity(1);
