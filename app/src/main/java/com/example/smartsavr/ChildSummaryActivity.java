@@ -3,8 +3,6 @@ package com.example.smartsavr;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -68,9 +66,10 @@ public class ChildSummaryActivity extends AppCompatActivity {
                 calculateDailyEarnings();
                 populateGraph();
                 weekly_earnings = findViewById(R.id.weekly_amt);
-                weekly_earnings.setText("Weekly Earnings: $" + Float.valueOf(calculateWeeklyEarnings()));
+                //TODO: fix string literal
+                weekly_earnings.setText("Weekly Earnings: $" + calculateWeeklyEarnings());
                 monthly_earnings = findViewById(R.id.monthly_amt);
-                monthly_earnings.setText("Monthly Earnings: $" + Float.valueOf(calculateMonthlyEarnings()));
+                monthly_earnings.setText("Monthly Earnings: $" + calculateMonthlyEarnings());
             } else {
                 Log.e(TAG, "Database error when loading documents");
             }
