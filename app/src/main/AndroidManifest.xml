@@ -18,6 +18,13 @@
             android:name=".ChildHome"
             android:exported="false" />
         <activity
+            android:name=".ParentSummaryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChildSummaryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true" />
+        <activity
             android:name=".ChildProfile_parentlogin"
             android:exported="false" />
         <activity
@@ -44,9 +51,11 @@
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".AddChildActivity"
             android:parentActivityName=".SettingsActivity" />
+
     </application>
 
 </manifest>
