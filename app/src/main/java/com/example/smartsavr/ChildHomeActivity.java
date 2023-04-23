@@ -102,8 +102,8 @@ public class ChildHomeActivity extends AppCompatActivity {
 
         toDoCompletedDBReference.setQuery(queryChoresToDo);
 
-        completedActivityFragmnet = ChoresListFragment.newInstance("childChoresCompleted");
-        toDoActivityFragmnet = ChoresListFragment.newInstance("childChoresToDo");
+        completedActivityFragmnet = ChoresListFragment.newInstance("childChoresCompleted", childId);
+        toDoActivityFragmnet = ChoresListFragment.newInstance("childChoresToDo", childId);
         setFragment(R.id.fragmentChildCompletedChores, completedActivityFragmnet);
         setFragment(R.id.fragmentChildUpcomingChores, toDoActivityFragmnet);
         if (ChildHomeActivity.listChoresCompleted.size() > 3) {
@@ -137,10 +137,12 @@ public class ChildHomeActivity extends AppCompatActivity {
     private void setListeners() {
         binding.linkCompletedActivities.setOnClickListener(v -> {
             Intent intent = new Intent(this, ChildHomeChoresCompletedActivity.class);
+            intent.putExtra(Utils.CHILD_ID, childId);
             startActivity(intent);
         });
         binding.linkUpcomingActivities.setOnClickListener(v -> {
             Intent intent = new Intent(this, ChildHomeChoresUpcomingActivity.class);
+            intent.putExtra(Utils.CHILD_ID, childId);
             startActivity(intent);
         });
         binding.linkSeeGraphs.setOnClickListener(v -> {

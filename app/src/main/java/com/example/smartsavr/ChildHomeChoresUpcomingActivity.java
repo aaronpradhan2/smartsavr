@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -27,6 +28,9 @@ public class ChildHomeChoresUpcomingActivity extends AppCompatActivity {
         binding = ActivityChildHomeChoresUpcomingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        String childId = intent.getStringExtra(Utils.CHILD_ID);
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.upcoming_chores);
@@ -35,7 +39,7 @@ public class ChildHomeChoresUpcomingActivity extends AppCompatActivity {
 
         Query queryChoresUpcoming = ChildHomeActivity.toDoCompletedDBReference.getCollectionReference().whereEqualTo("childID", ChildHomeActivity.childId).whereEqualTo("complete", false).orderBy("deadline", Query.Direction.ASCENDING).orderBy("assignedTimestamp",Query.Direction.DESCENDING);
         ChildHomeActivity.toDoCompletedDBReference.setQuery(queryChoresUpcoming);
-        setFragment(R.id.upcomingActivities,ChoresListFragment.newInstance("childChoresToDoAll"));
+        setFragment(R.id.upcomingActivities,ChoresListFragment.newInstance("childChoresToDoAll", childId));
     }
 
     private void setFragment(int id, Fragment fragment) {

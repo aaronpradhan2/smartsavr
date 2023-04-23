@@ -1,16 +1,20 @@
 package com.example.smartsavr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,6 +23,8 @@ import java.util.Locale;
 
 public class ChoresAdapter extends RecyclerView.Adapter<ChoresViewHolder> {
 
+    private static final String CHILDREN = "children";
+
     Context context;
 
     List<Chore> chores;
@@ -26,13 +32,15 @@ public class ChoresAdapter extends RecyclerView.Adapter<ChoresViewHolder> {
     boolean isChildUser;
 
     DBReference dbReference;
+    private final String childId;
 
 
-    public ChoresAdapter(List<Chore> chores, Context context, boolean isChildUser, DBReference dbReference) {
+    public ChoresAdapter(List<Chore> chores, Context context, boolean isChildUser, DBReference dbReference, String childId) {
         this.context = context;
         this.chores = chores;
         this.isChildUser = isChildUser;
         this.dbReference = dbReference;
+        this.childId = childId;
     }
 
     @NonNull
@@ -162,6 +170,43 @@ public class ChoresAdapter extends RecyclerView.Adapter<ChoresViewHolder> {
                                     public void onClick(View view) {
                                         chore.setApproved(true);
                                         chore.setApprovedTimestamp(System.currentTimeMillis());
+
+                                        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+                                        firebaseFirestore.collection(CHILDREN).document(childId).get().addOnCompleteListener(
+                                                task -> {
+                                                    Log.d("ChoresAdapter", String.format("Got snapshot of child with ID %s", childId));
+                                                    if (task.isSuccessful()) {
+                                                        DocumentSnapshot value = task.getResult();
+                                                        if (value != null) {
+                                                            Child child = value.toObject(Child.class);
+                                                            if (child != null) {
+                                                                int newBalanceCents = child.getAccountBalanceCents() + chore.getRewardCents();
+                                                                Log.d("ChoresAdapter", String.format("Set %s's balance to %d cents + %d cents = %d cents", child.getName(), child.getAccountBalanceCents(), chore.getRewardCents(), newBalanceCents));
+                                                                child.setAccountBalanceCents(newBalanceCents);
+                                                                ParentChildDetailActivity.child.setAccountBalanceCents(newBalanceCents);
+                                                                firebaseFirestore.collection(CHILDREN).document(childId).set(child).addOnSuccessListener(
+                                                                                documentReference -> {
+                                                                                    Log.d("ChoresAdapter", String.format("Successfully saved %s's profile", child.getName()));
+                                                                                    firebaseFirestore.collection(CHILDREN).document(childId).get().addOnCompleteListener(t -> {
+                                                                                        if (t.isSuccessful()) {
+                                                                                            Log.d("ChoresAdapter", String.format("new account balance cents: %d", t.getResult().toObject(Child.class).getAccountBalanceCents()));
+                                                                                        }
+                                                                                    });
+                                                                                })
+                                                                        .addOnFailureListener(e -> Log.e("ChoresAdapter", "Error writing document", e));
+                                                                Log.d("ChoresAdapter", String.format("New child: %s", child));
+                                                            } else {
+                                                                Log.e("ChoresAdapter", "Child is null");
+                                                            }
+                                                        } else {
+                                                            Log.e("ChoresAdapter", String.format("DocumentSnapshot for ID %s is null", childId));
+                                                        }
+                                                    } else {
+                                                        Log.e("ChoresAdapter", String.format("Get child with ID %s failed", childId));
+                                                    }
+                                                }
+                                        );
                                         dbReference.getCollectionReference().document(chore.getId()).set(chore);
                                     }}).setActionTextColor(v.getResources().getColor(android.R.color.holo_green_light ))
                                 .show();;

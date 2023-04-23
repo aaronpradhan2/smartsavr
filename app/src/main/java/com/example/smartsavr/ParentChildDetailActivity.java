@@ -33,7 +33,7 @@ public class ParentChildDetailActivity extends AppCompatActivity implements Modi
     FirebaseFirestore firebaseFirestore;
     static CollectionReference collectionReference;
 
-    private Child child;
+    static Child child;
 
 
 
@@ -174,7 +174,6 @@ public class ParentChildDetailActivity extends AppCompatActivity implements Modi
 
                     }
                     Log.d("EARNING CENTS",Integer.toString(earningCents));
-                    child.setAccountBalanceCents(child.getWeeklyAllowanceCents()+earningCents);
 
                     setListner2();
                 }
@@ -185,14 +184,14 @@ public class ParentChildDetailActivity extends AppCompatActivity implements Modi
     }
 
     private void setListner2(){
-        firebaseFirestore.collection("chores").whereEqualTo("childID",child.getId()).whereEqualTo("complete",true).whereEqualTo("approved",false).addSnapshotListener(
+        firebaseFirestore.collection("chores").whereEqualTo("childID",child.getId()).whereEqualTo("complete",true).addSnapshotListener(
                 (value, error) -> {
                     if (error != null) {
 
                         System.err.println("Listen failed: " + error);
                         return;
                     }
-                  int   tasksCompleted = value.getDocuments().size();
+                    int tasksCompleted = value.getDocuments().size();
                     child.setChoresCompleted(tasksCompleted);
                     giveAllowance();
 

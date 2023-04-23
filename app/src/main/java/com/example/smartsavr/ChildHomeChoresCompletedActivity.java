@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -26,6 +27,9 @@ public class ChildHomeChoresCompletedActivity extends AppCompatActivity {
         binding=ActivityChildHomeChoresCompletedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        String childId = intent.getStringExtra(Utils.CHILD_ID);
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.completed_chores);
@@ -34,7 +38,7 @@ public class ChildHomeChoresCompletedActivity extends AppCompatActivity {
 
         Query queryChoresCompleted = ChildHomeActivity.choresCompletedDBReference.getCollectionReference().whereEqualTo("childID", ChildHomeActivity.childId).whereEqualTo("complete", true).orderBy("completedTimestamp", Query.Direction.DESCENDING);
         ChildHomeActivity.choresCompletedDBReference.setQuery(queryChoresCompleted);
-        setFragment(R.id.completedActivities,ChoresListFragment.newInstance("childChoresCompletedAll"));
+        setFragment(R.id.completedActivities,ChoresListFragment.newInstance("childChoresCompletedAll", childId));
 
     }
 
